@@ -35,8 +35,8 @@ async def start(client, message: Message):
     
     welcome_text = (
         f"Welcome: {full_name}!\n"
-        "🌐 I'm the Cloak Bot.\n\n"
-        "💬 You can use me to send whispers in groups.\n\n"
+        "🌐 I'm the Whisper Bot.\n\n"
+        "💬 You can use me to send secret whispers in groups.\n\n"
         "🔮 I work in the Inline mode that means you can use me even if I'm not in the group.\n\n"
         "💌 It is very easy to use me, simply forward a message from a user to which you want to send a whisper and I'll do the rest for you.\n\n"
         "There are other ways to use me too. If you are interested to learn more about me, click on the Help button."
@@ -52,18 +52,18 @@ async def help_callback(client, callback_query):
     help_text = (
         "The other way to use me is to write the inline query by yourself.\n\n"
         "The format should be in this arrangement:\n\n"
-        "`@Cloakxbot your whisper @username`\n\n"
+        "`@cloakxbot your whisper @username`\n\n"
         "Now I'll split the format into 3 parts and explain each part of it:\n\n"
-        "1. `@Cloakxbot`:\n"
+        "1. `@cloakxbot`:\n"
         "   This is my username; it should be at the beginning of the inline query so I'll know that you are using me and not another bot.\n\n"
         "2. `whisper message`:\n"
         "   This is the whisper that will be sent to the target user. Replace `your whisper` with your actual message.\n\n"
         "3. `@username`:\n"
-        "   You should replace this with the target's username so the bot will know which user should receive your whisper.\n\n"
+        "   You should replace this with the target's username so the bot will know which user should receive your whisper message.\n\n"
         "Example:\n"
-        "`@Cloakxbot hello this is a test @sidawakens`\n\n"
+        "`@cloakxbot hello this is a test @burhanverse`\n\n"
         "📎 The bot works in groups and the target user should be in the same group as you.\n\n"
-        "What are you waiting for?! Try whispering now 😉"
+        "What are you waiting for?! Try me now 😉"
     )
     back_button = InlineKeyboardMarkup([
         [InlineKeyboardButton("Back", callback_data="back")]
@@ -79,8 +79,8 @@ async def back_callback(client, callback_query):
 
     welcome_text = (
         f"Welcome: {full_name}!\n"
-        "🌐 I'm the Cloak Bot.\n\n"
-        "💬 You can use me to send whispers in groups.\n\n"
+        "🌐 I'm the Whisper Bot.\n\n"
+        "💬 You can use me to send secret whispers in groups.\n\n"
         "🔮 I work in the Inline mode that means you can use me even if I'm not in the group.\n\n"
         "💌 It is very easy to use me, simply forward a message from a user to which you want to send a whisper and I'll do the rest for you.\n\n"
         "There are other ways to use me too. If you are interested to learn more about me, click on the Help button."
@@ -102,12 +102,12 @@ async def answer(client, inline_query):
             results=[
                 InlineQueryResultArticle(
                     id=str(uuid.uuid4()),
-                    title="How to Send Whisper",
+                    title="How to Send Secret Message",
                     description="Include the recipient's @username or user ID at the end of your message.",
                     input_message_content=InputTextMessageContent(
-                        "How to Send Whisper\n\n"
+                        "How to Send Secret Message\n\n"
                         "Include the recipient's @username or user ID at the end of your message.\n\n"
-                        "Example: @Cloakxbot Hello there! @username"
+                        "Example: @cloakxbot Hello there! @username"
                     ),
                     reply_markup=InlineKeyboardMarkup(
                         [[InlineKeyboardButton("Start Bot", url=f"https://t.me/{bot_username}?start=inline_help")]]
@@ -168,7 +168,7 @@ async def answer(client, inline_query):
                         title="Ask Recipient to Start the Bot",
                         description="Recipient not found. Ask the recipient to start the bot first.",
                         input_message_content=InputTextMessageContent(
-                            "The recipient is not found. Please ask the recipient to start the bot first, and then you can send whisper."
+                            "The recipient is not found. Please ask the recipient to start the bot first, and then you can send secret messages."
                         ),
                         reply_markup=InlineKeyboardMarkup(
                             [[InlineKeyboardButton("Start Bot", url=f"https://t.me/{bot_username}?start=inline_help")]]
@@ -184,12 +184,12 @@ async def answer(client, inline_query):
             results=[
                 InlineQueryResultArticle(
                     id=str(uuid.uuid4()),
-                    title="How to Send Whisper",
+                    title="How to Send Secret Message",
                     description="Include the recipient's @username or user ID at the end of your message.",
                     input_message_content=InputTextMessageContent(
-                        "How to Send Whisper\n\n"
+                        "How to Send Secret Message\n\n"
                         "Include the recipient's @username or user ID at the end of your message.\n\n"
-                        "Example: @Cloakxbot Hello there! @username"
+                        "Example: @cloakxbot Hello there! @username"
                     ),
                     reply_markup=InlineKeyboardMarkup(
                         [[InlineKeyboardButton("Start Bot", url=f"https://t.me/{bot_username}?start=inline_help")]]
@@ -206,17 +206,17 @@ async def answer(client, inline_query):
         "recipient_id": recipient_id
     }
 
-    print(f"Whisper Stored: ID={message_id}, Content='{message_content}'")
+    print(f"Message Stored: ID={message_id}, Content='{message_content}'")
 
     whisper_message = f"🔒 Whisper to {full_name}, only viewable by you and them."
     results = [
         InlineQueryResultArticle(
             id=str(uuid.uuid4()),
-            title=f"Send a Whisper to {full_name}",
+            title=f"Send a Whisper Message to {full_name}",
             description="he/she can open it",
             input_message_content=InputTextMessageContent(whisper_message),
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton("Show Whisper 🔒", callback_data=message_id)]
+                [InlineKeyboardButton("Show Message 🔒", callback_data=message_id)]
             ])
         )
     ]
@@ -232,7 +232,7 @@ async def whisper_callback(client, callback_query):
     message_data = messages.get(message_id)
 
     if not message_data:
-        await callback_query.answer("Whisper not found or expired.", show_alert=True)
+        await callback_query.answer("Message not found or expired.", show_alert=True)
         return
 
     sender_id = message_data["sender_id"]
@@ -246,6 +246,6 @@ async def whisper_callback(client, callback_query):
         except Exception as e:
             print(f"Error in responding: {str(e)}")
     else:
-        await callback_query.answer("Hey Dear! This Whisper is Not For You", show_alert=True)
+        await callback_query.answer("Hey Dear! This Message is Not For You", show_alert=True)
 
 app.run()
