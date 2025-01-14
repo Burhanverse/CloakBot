@@ -1,15 +1,15 @@
-<h1 align="center">Whisper Bot</h1>
+<h1 align="center">Cloack Bot</h1>
 
 <p align="center">
-  <a href="https://github.com/bisnuray/WhisperBot/stargazers"><img src="https://img.shields.io/github/stars/bisnuray/WhisperBot?color=blue&style=flat" alt="GitHub Repo stars"></a>
-  <a href="https://github.com/bisnuray/WhisperBot/issues"><img src="https://img.shields.io/github/issues/bisnuray/WhisperBot" alt="GitHub issues"></a>
-  <a href="https://github.com/bisnuray/WhisperBot/pulls"><img src="https://img.shields.io/github/issues-pr/bisnuray/WhisperBot" alt="GitHub pull requests"></a>
-  <a href="https://github.com/bisnuray/WhisperBot/graphs/contributors"><img src="https://img.shields.io/github/contributors/bisnuray/WhisperBot?style=flat" alt="GitHub contributors"></a>
-  <a href="https://github.com/bisnuray/WhisperBot/network/members"><img src="https://img.shields.io/github/forks/bisnuray/WhisperBot?style=flat" alt="GitHub forks"></a>
+  <a href="https://github.com/Burhanverse/CloakBot/stargazers"><img src="https://img.shields.io/github/stars/Burhanverse/CloakBot?color=blue&style=flat" alt="GitHub Repo stars"></a>
+  <a href="https://github.com/Burhanverse/CloakBot/issues"><img src="https://img.shields.io/github/issues/Burhanverse/CloakBot" alt="GitHub issues"></a>
+  <a href="https://github.com/Burhanverse/CloakBot/pulls"><img src="https://img.shields.io/github/issues-pr/Burhanverse/CloakBot" alt="GitHub pull requests"></a>
+  <a href="https://github.com/Burhanverse/CloakBot/graphs/contributors"><img src="https://img.shields.io/github/contributors/Burhanverse/CloakBot?style=flat" alt="GitHub contributors"></a>
+  <a href="https://github.com/Burhanverse/CloakBot/network/members"><img src="https://img.shields.io/github/forks/Burhanverse/CloakBot?style=flat" alt="GitHub forks"></a>
 </p>
 
 <p align="center">
-  <em>Whisper Bot: Send secret, encrypted messages in Telegram groups via inline mode. Easy-to-use, supports private messaging without being part of the group.</em>
+  <em>Cloack Bot: Send secret, encrypted messages in Telegram groups via inline mode. Easy-to-use, supports private messaging without being part of the group.</em>
 </p>
 <hr>
 
@@ -25,16 +25,16 @@
 Before you begin, ensure you have met the following requirements:
 
 - Python 3.8 or higher.
-- `pyrofork` library.
+- `pyrofork` & `TgCrypto` library.
 - A Telegram bot token (you can get one from [@BotFather](https://t.me/BotFather) on Telegram).
 - API ID and Hash: You can get these by creating an application on [my.telegram.org](https://my.telegram.org).
 
 ## Installation
 
-To install `pyrofork` run the following command:
+To install run the following command:
 
 ```bash
-pip install pyrofork
+pip install -r requirements.txt
 ```
 
 **Note: If you previously installed `pyrogram`, uninstall it before installing `pyrofork`.**
@@ -63,21 +63,21 @@ For more information on inline bots, refer to the [Telegram Bot Documentation](h
 ## Deploy the Bot
 
 ```sh
-git clone https://github.com/bisnuray/WhisperBot
-cd WhisperBot
+git clone https://github.com/Burhanverse/CloakBot
+cd CloackBot
 python whisper.py
 ```
 
 ## Bot Commands
 
 - **/start**: Sends a welcome message with instructions on how to use the bot.
-- **Inline Query**: Use `@LockTextBot your message @username` in an inline query to send a whisper message. `@LockTextBot` Example Bot use your own bot.
+- **Inline Query**: Use `@cloackxbot your message @username` in an inline query to send a whisper message. `@cloackxbot` Example Bot use your own bot.
 
 ## How to Use
 
 1. **Inline Mode**:
-   - Use the bot in inline mode by typing `@LockTextBot <your whisper> @<recipient_username> or userid`.
-   - For example: `@LockTextBot hello this is a test messages @BisnuRay`.
+   - Use the bot in inline mode by typing `@cloackxbot <your whisper> @<recipient_username> or userid`.
+   - For example: `@cloackxbot hello this is a test messages @burhanverse`.
    - Only the sender and the recipient will be able to view the secret message.
 
 ## Note
