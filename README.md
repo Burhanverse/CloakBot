@@ -1,14 +1,6 @@
 <h1 align="center">Cloack Bot</h1>
 
 <p align="center">
-  <a href="https://github.com/Burhanverse/CloakBot/stargazers"><img src="https://img.shields.io/github/stars/Burhanverse/CloakBot?color=blue&style=flat" alt="GitHub Repo stars"></a>
-  <a href="https://github.com/Burhanverse/CloakBot/issues"><img src="https://img.shields.io/github/issues/Burhanverse/CloakBot" alt="GitHub issues"></a>
-  <a href="https://github.com/Burhanverse/CloakBot/pulls"><img src="https://img.shields.io/github/issues-pr/Burhanverse/CloakBot" alt="GitHub pull requests"></a>
-  <a href="https://github.com/Burhanverse/CloakBot/graphs/contributors"><img src="https://img.shields.io/github/contributors/Burhanverse/CloakBot?style=flat" alt="GitHub contributors"></a>
-  <a href="https://github.com/Burhanverse/CloakBot/network/members"><img src="https://img.shields.io/github/forks/Burhanverse/CloakBot?style=flat" alt="GitHub forks"></a>
-</p>
-
-<p align="center">
   <em>Cloack Bot: Send secret, encrypted messages in Telegram groups via inline mode. Easy-to-use, supports private messaging without being part of the group.</em>
 </p>
 <hr>
