@@ -25,7 +25,7 @@ Before you begin, ensure you have met the following requirements:
 
 To install run the following command:
 
-```bash
+```sh
 pip install -r requirements.txt
 ```
 
@@ -56,8 +56,12 @@ For more information on inline bots, refer to the [Telegram Bot Documentation](h
 
 ```sh
 git clone https://github.com/Burhanverse/CloakBot
+```
+```sh
 cd CloackBot
-python whisper.py
+```
+```sh
+python cloack.py
 ```
 
 ## Bot Commands
