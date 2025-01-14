@@ -1,7 +1,7 @@
-<h1 align="center">Cloack Bot</h1>
+<h1 align="center">Cloak Bot</h1>
 
 <p align="center">
-  <em>Cloack Bot: Send secret, encrypted messages in Telegram groups via inline mode. Easy-to-use, supports private messaging without being part of the group.</em>
+  <em>Cloak Bot: Send secret, encrypted messages in Telegram groups via inline mode. Easy-to-use, supports private messaging without being part of the group.</em>
 </p>
 <hr>
 
@@ -58,7 +58,7 @@ For more information on inline bots, refer to the [Telegram Bot Documentation](h
 git clone https://github.com/Burhanverse/CloakBot
 ```
 ```sh
-cd CloackBot
+cd CloakBot
 ```
 ```sh
 python cloack.py
@@ -67,22 +67,19 @@ python cloack.py
 ## Bot Commands
 
 - **/start**: Sends a welcome message with instructions on how to use the bot.
-- **Inline Query**: Use `@cloackxbot your message @username` in an inline query to send a whisper message. `@cloackxbot` Example Bot use your own bot.
+- **Inline Query**: Use `@cloakxbot your message @username` in an inline query to send a whisper message. `@cloakxbot` Example Bot use your own bot.
 
 ## How to Use
 
 1. **Inline Mode**:
-   - Use the bot in inline mode by typing `@cloackxbot <your whisper> @<recipient_username> or userid`.
-   - For example: `@cloackxbot hello this is a test messages @burhanverse`.
+   - Use the bot in inline mode by typing `@cloakxbot <your whisper> @<recipient_username> or userid`.
+   - For example: `@cloakxbot hello this is a test messages @burhanverse`.
    - Only the sender and the recipient will be able to view the secret message.
 
 ## Note
 
 - **User ID Restriction**: If a user has not started the bot, you will not be able to send secret messages to them using their user ID. Ensure that the recipient has interacted with the bot at least once by clicking **Start**.
 
-## Author
-
-- Name: Bisnu Ray
-- Telegram: [@itsSmartDev](https://t.me/itsSmartDev)
+- Author: [@itsSmartDev](https://t.me/itsSmartDev)
 
 ✨ **Note**: If you found this repo helpful, please fork and star it. Also, feel free to share with proper credit!

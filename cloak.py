@@ -35,7 +35,7 @@ async def start(client, message: Message):
     
     welcome_text = (
         f"Welcome: {full_name}!\n"
-        "🌐 I'm the Cloack Bot.\n\n"
+        "🌐 I'm the Cloak Bot.\n\n"
         "💬 You can use me to send whispers in groups.\n\n"
         "🔮 I work in the Inline mode that means you can use me even if I'm not in the group.\n\n"
         "💌 It is very easy to use me, simply forward a message from a user to which you want to send a whisper and I'll do the rest for you.\n\n"
@@ -52,16 +52,16 @@ async def help_callback(client, callback_query):
     help_text = (
         "The other way to use me is to write the inline query by yourself.\n\n"
         "The format should be in this arrangement:\n\n"
-        "`@cloackxbot your whisper @username`\n\n"
+        "`@Cloakxbot your whisper @username`\n\n"
         "Now I'll split the format into 3 parts and explain each part of it:\n\n"
-        "1. `@cloackxbot`:\n"
+        "1. `@Cloakxbot`:\n"
         "   This is my username; it should be at the beginning of the inline query so I'll know that you are using me and not another bot.\n\n"
         "2. `whisper message`:\n"
         "   This is the whisper that will be sent to the target user. Replace `your whisper` with your actual message.\n\n"
         "3. `@username`:\n"
         "   You should replace this with the target's username so the bot will know which user should receive your whisper.\n\n"
         "Example:\n"
-        "`@cloackxbot hello this is a test @sidawakens`\n\n"
+        "`@Cloakxbot hello this is a test @sidawakens`\n\n"
         "📎 The bot works in groups and the target user should be in the same group as you.\n\n"
         "What are you waiting for?! Try whispering now 😉"
     )
@@ -79,7 +79,7 @@ async def back_callback(client, callback_query):
 
     welcome_text = (
         f"Welcome: {full_name}!\n"
-        "🌐 I'm the Cloack Bot.\n\n"
+        "🌐 I'm the Cloak Bot.\n\n"
         "💬 You can use me to send whispers in groups.\n\n"
         "🔮 I work in the Inline mode that means you can use me even if I'm not in the group.\n\n"
         "💌 It is very easy to use me, simply forward a message from a user to which you want to send a whisper and I'll do the rest for you.\n\n"
@@ -107,7 +107,7 @@ async def answer(client, inline_query):
                     input_message_content=InputTextMessageContent(
                         "How to Send Whisper\n\n"
                         "Include the recipient's @username or user ID at the end of your message.\n\n"
-                        "Example: @cloackxbot Hello there! @username"
+                        "Example: @Cloakxbot Hello there! @username"
                     ),
                     reply_markup=InlineKeyboardMarkup(
                         [[InlineKeyboardButton("Start Bot", url=f"https://t.me/{bot_username}?start=inline_help")]]
@@ -189,7 +189,7 @@ async def answer(client, inline_query):
                     input_message_content=InputTextMessageContent(
                         "How to Send Whisper\n\n"
                         "Include the recipient's @username or user ID at the end of your message.\n\n"
-                        "Example: @cloackxbot Hello there! @username"
+                        "Example: @Cloakxbot Hello there! @username"
                     ),
                     reply_markup=InlineKeyboardMarkup(
                         [[InlineKeyboardButton("Start Bot", url=f"https://t.me/{bot_username}?start=inline_help")]]
