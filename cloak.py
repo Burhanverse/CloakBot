@@ -28,13 +28,15 @@ bot_username = BOT_USERNAME
 messages = {}
 
 @app.on_message(filters.command("start"))
-async def start(client, message: Message):
+async def start(client: Client, message: Message):
     full_name = message.from_user.first_name
     if message.from_user.last_name:
         full_name += f" {message.from_user.last_name}"
-    
+    username = f"@{message.from_user.username}" if message.from_user.username else "No username"
+    user_info = f"{full_name} ({username})"
+
     welcome_text = (
-        f"Welcome: {full_name}!\n"
+        f"Welcome: {user_info}!\n"
         "🌐 I'm the Whisper Bot.\n\n"
         "💬 You can use me to send secret whispers in groups.\n\n"
         "🔮 I work in the Inline mode that means you can use me even if I'm not in the group.\n\n"
@@ -76,9 +78,11 @@ async def back_callback(client, callback_query):
     full_name = callback_query.from_user.first_name
     if callback_query.from_user.last_name:
         full_name += f" {callback_query.from_user.last_name}"
+    username = f"@{callback_query.from_user.username}" if callback_query.from_user.username else "No username"
+    user_info = f"{full_name} ({username})"
 
     welcome_text = (
-        f"Welcome: {full_name}!\n"
+        f"Welcome: {user_info}!\n"
         "🌐 I'm the Whisper Bot.\n\n"
         "💬 You can use me to send secret whispers in groups.\n\n"
         "🔮 I work in the Inline mode that means you can use me even if I'm not in the group.\n\n"
@@ -90,7 +94,6 @@ async def back_callback(client, callback_query):
     ])
     
     await callback_query.message.edit_text(welcome_text, reply_markup=help_button)
-
 @app.on_inline_query()
 async def answer(client, inline_query):
     text = inline_query.query.strip()
@@ -137,21 +140,6 @@ async def answer(client, inline_query):
                 full_name += f" {recipient_user.last_name}"
         except Exception as e:
             print(f"Error fetching recipient user by username: {str(e)}")
-            await inline_query.answer(
-                results=[
-                    InlineQueryResultArticle(
-                        id=str(uuid.uuid4()),
-                        title="Recipient Not Found",
-                        description="Recipient not found. Please try again with a valid username.",
-                        input_message_content=InputTextMessageContent("Recipient not found. Please try again with a valid username."),
-                        reply_markup=InlineKeyboardMarkup(
-                            [[InlineKeyboardButton("Learn More", url=f"https://t.me/{bot_username}?start=inline_help")]]
-                        )
-                    )
-                ],
-                cache_time=1
-            )
-            return
     elif recipient_identifier.isdigit():
         try:
             recipient_id = int(recipient_identifier)
@@ -161,44 +149,8 @@ async def answer(client, inline_query):
                 full_name += f" {recipient_user.last_name}"
         except Exception as e:
             print(f"Error fetching recipient user by ID: {str(e)}")
-            await inline_query.answer(
-                results=[
-                    InlineQueryResultArticle(
-                        id=str(uuid.uuid4()),
-                        title="Ask Recipient to Start the Bot",
-                        description="Recipient not found. Ask the recipient to start the bot first.",
-                        input_message_content=InputTextMessageContent(
-                            "The recipient is not found. Please ask the recipient to start the bot first, and then you can send secret messages."
-                        ),
-                        reply_markup=InlineKeyboardMarkup(
-                            [[InlineKeyboardButton("Start Bot", url=f"https://t.me/{bot_username}?start=inline_help")]]
-                        )
-                    )
-                ],
-                cache_time=1
-            )
-            return
     else:
         print(f"Invalid recipient identifier: '{recipient_identifier}'")
-        await inline_query.answer(
-            results=[
-                InlineQueryResultArticle(
-                    id=str(uuid.uuid4()),
-                    title="How to Send Secret Message",
-                    description="Include the recipient's @username or user ID at the end of your message.",
-                    input_message_content=InputTextMessageContent(
-                        "How to Send Secret Message\n\n"
-                        "Include the recipient's @username or user ID at the end of your message.\n\n"
-                        "Example: @cloakxbot Hello there! @username"
-                    ),
-                    reply_markup=InlineKeyboardMarkup(
-                        [[InlineKeyboardButton("Start Bot", url=f"https://t.me/{bot_username}?start=inline_help")]]
-                    )
-                )
-            ],
-            cache_time=1
-        )
-        return
 
     messages[message_id] = {
         "content": message_content,
@@ -208,7 +160,7 @@ async def answer(client, inline_query):
 
     print(f"Message Stored: ID={message_id}, Content='{message_content}'")
 
-    whisper_message = f"🔒 Whisper to {full_name}, only viewable by you and them."
+    whisper_message = f"🔒 Whisper to {full_name} (@{recipient_username}), only viewable by you and them." if recipient_username else f"🔒 Whisper to {full_name}, only viewable by you and them."
     results = [
         InlineQueryResultArticle(
             id=str(uuid.uuid4()),
