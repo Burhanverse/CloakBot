@@ -40,7 +40,7 @@ async def start(client: Client, message: Message):
         "🌐 I'm the Whisper Bot.\n\n"
         "💬 You can use me to send secret whispers in groups.\n\n"
         "🔮 I work in the Inline mode that means you can use me even if I'm not in the group.\n\n"
-        "💌 It is very easy to use me, simply forward a message from a user to which you want to send a whisper and I'll do the rest for you.\n\n"
+        "💌 Example: `@cloakxbot hello this is a test @user1 @user2 12345`\n\n"
         "There are other ways to use me too. If you are interested to learn more about me, click on the Help button."
     )
     help_button = InlineKeyboardMarkup([
@@ -86,7 +86,7 @@ async def back_callback(client, callback_query):
         "🌐 I'm the Whisper Bot.\n\n"
         "💬 You can use me to send secret whispers in groups.\n\n"
         "🔮 I work in the Inline mode that means you can use me even if I'm not in the group.\n\n"
-        "💌 It is very easy to use me, simply forward a message from a user to which you want to send a whisper and I'll do the rest for you.\n\n"
+        "💌 Example: `@cloakxbot hello this is a test @user1 @user2 12345`\n\n"
         "There are other ways to use me too. If you are interested to learn more about me, click on the Help button."
     )
     help_button = InlineKeyboardMarkup([
