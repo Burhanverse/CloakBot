@@ -9,6 +9,7 @@
 
 - 🌐 **Inline Mode Support**: Send whisper messages without adding the bot to a group.
 - 💬 **Secret Messaging**: Messages are only visible to the sender and the intended recipient.
+- 👥 **Multiple User Support**: Send the same whisper message to multiple users by mentioning their @user_name or user_id.
 - 🔄 **Help and Back Button**: Easily access the help menu and navigate back with built-in buttons.
 - 📎 **User-Friendly**: Simply use the bot in the inline mode to send private messages easily.
 
